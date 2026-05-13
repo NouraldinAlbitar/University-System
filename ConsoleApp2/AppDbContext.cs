@@ -17,7 +17,6 @@ namespace ConsoleApp2
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
-    // TABLE MAPPING (IMPORTANT FIX)
    modelBuilder.HasDefaultSchema("task");
 
 
@@ -38,7 +37,7 @@ namespace ConsoleApp2
         .WithOne(e => e.Student)
         .HasForeignKey(e => e.StudentId);
 
-    // Teacher
+    
     modelBuilder.Entity<Teachers>()
         .HasKey(t => t.TeacherId);
 
@@ -55,7 +54,7 @@ namespace ConsoleApp2
         .WithOne(c => c.Teacher)
         .HasForeignKey(c => c.TeacherId);
 
-    // Course
+
     modelBuilder.Entity<Courses>()
         .HasKey(c => c.CourseId);
 
@@ -64,7 +63,6 @@ namespace ConsoleApp2
         .WithOne(e => e.Course)
         .HasForeignKey(e => e.CourseId);
 
-    // Enrollment
     modelBuilder.Entity<Enrollments>()
         .HasKey(e => e.EnrollmentId);
 
